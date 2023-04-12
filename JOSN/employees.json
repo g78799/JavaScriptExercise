@@ -1,0 +1,54 @@
+{
+    "CORP":"MCU",
+    "version": "1.0.1",
+    "pushline" :"2023/03/22",
+    "employees" : [
+        {
+            "firstname": "Keven",
+            "gender":true,
+            "height": 180,
+            "email":"keven@gmail.com",
+            "City":{
+                "通訊地址":"台北",
+                "戶籍地址":"桃園"
+            },
+            "phone":{
+                "市話":"02-29881055",
+                "行動電話":"0933-852177"
+            },
+            "car":["BMW","nissan GR-R","Audi"]
+        }
+        ,
+        {
+            "firstname": "gee",
+            "gender":true,
+            "height": 200,
+            "email":"geen@gmail.com",
+            "City":{
+                "通訊地址":"台北",
+                "戶籍地址":"桃園"
+            },
+            "phone":{
+                "市話":"02-29881055",
+                "行動電話":"0933-852177"
+            },
+            "car":["BMW","nissan GR-R","Audi"]
+        }
+        ,
+        {
+            "firstname": "tee",
+            "gender":true,
+            "height": 130,
+            "email":"yee@gmail.com",
+            "City":{
+                "通訊地址":"台北",
+                "戶籍地址":"桃園"
+            },
+            "phone":{
+                "市話":"02-29881055",
+                "行動電話":"0933-852177"
+            },
+            "car":["BMW","nissan GR-R","Audi"]
+        }
+    ]
+}

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>用XMLHttpRequest請求GitHub JSON資料</h1>
+
+    <button id='button1'>Request JSON1</button>
+    <button id='button2'>Request JSON2</button>
+    <button id='button3'>Request JSON3</button>
+    <button id='button4'>Request JSON4</button>
+    <button id='button5'>Request JSON5</button>
+    <button id='button6'>Request Apple JSON</button>
+    <button id='button7'>Request JSON7</button>
+    <button id='btnClear'>Clear</button>
+    <div id='msg'></div>
+    <ul id="container"></ul>
+
+    <script>
+        let btn1, btn2, btn3, btn4, btn5, btn6, btn7, btnClear, iPadObject;
+
+    </script>
+
+    <script type="module">
+
+        import { $g } from "../modules/helps.js";
+
+        let msg = $g('#msg');
+        let ul = $g("#container");
+        $g('button').forEach((item) => {
+            item.addEventListener('click', () => { msg.innerText = ''; })
+        });
+
+
+        window.onload = function () {
+            btn1 = $g('#button1');
+            btn1.addEventListener('click', requestJSON1);
+            btn2 = $g('#button2');
+            btn2.addEventListener('click', requestJSON2);
+            btn3 = $g('#button3');
+            btn3.addEventListener('click', requestJSON3);
+            btn4 = $g('#button4');
+            btn4.addEventListener('click', requestJSON4);
+            btn5 = $g('#button5');
+            btn5.addEventListener('click', requestJSON5);
+            btn6 = $g('#button6');
+            btn6.addEventListener('click', requestAppleJson.bind(null, urlApple));
+            btn7 = $g('#button7');
+            btn7.addEventListener('click', requestJSON7);
+            btnClear = $g('#btnClear');
+            btnClear.addEventListener('click', () => { msg.innerText = ''; })
+        }
+
+
+        const url = 'https://raw.githubusercontent.com/apprunner/FileStorage/master/iPad_DataFixed.json';
+
+        const urlApple = "https://raw.githubusercontent.com/apprunner/FileStorage/master/apple_array.json";
+
+        let xhr = new XMLHttpRequest();
+
+        function requestJSON1() {
+            xhr.onload = function () {
+                //debugger;
+                iPadObject = JSON.parse(this.responseText);
+
+                console.log(iPadObject);
+
+                let iPadAir = iPadObject.products;
+
+
+
+                iPadAir.forEach((ipad, index) => {
+
+                    let { sku, storage, description, picture } = ipad
+
+                    msg.append(`${++index}.${sku}, ${storage}, ${description}, ${picture}`, document.createElement("br"));
+                })
+
+            };
+
+            xhr.open('GET', url);
+
+            xhr.send();
+
+        }
+
+        function requestJSON2() {
+            xhr.onload = responseHandler;
+
+
+            xhr.open('GET', url);
+
+            xhr.responseType = "json"
+
+            xhr.send();
+        }
+
+        function responseHandler() {
+            //let iPadAir = iPadObject.products;
+            //debugger;
+            //iPadObject = JSON.parse(this.responseText);
+            iPadObject = this.response
+
+            let { products: iPadAir } = iPadObject
+
+            iPadAir.forEach((ipad, index) => {
+
+                let { sku, storage, description, picture } = ipad
+
+                msg.append(`${++index}.${sku}, ${storage}, ${description}, ${picture}`, document.createElement("br"));
+            })
+
+        };
+
+
+        function requestJSON3() {
+            //xhr.onload = responseHandler;
+            xhr.addEventListener("load", responseHandler)
+
+            xhr.open('GET', url);
+
+            xhr.send();
+        }
+
+
+        function requestJSON4() {
+            xhr.onreadystatechange = function () {
+                msg.innerText = this.responseText
+            }
+
+            xhr.open('GET', url);
+
+            xhr.send();
+        }
+
+        function requestJSON5() {
+            xhr.onload = function () {
+
+                iPadObject = JSON.parse(this.responseText);
+
+
+                //EX
+                let iPadAir = iPadObject.products;
+
+                iPadAir.forEach((ipad, index) => {
+
+                    let ipadArray = [];
+                    let keys = Object.keys(ipad);
+
+                    keys.forEach(key => {
+                        //console.log(`${key}:${ipad[key]}`)
+                        let keyvalue = `${key}:${ipad[key]}`;
+
+                        ipadArray.push(keyvalue);
+                    })
+
+                    msg.append(ipadArray.join(" | "), document.createElement('br'))
+                });
+
+
+
+
+
+            };
+
+            xhr.open('GET', url);
+
+            xhr.send();
+
+        }
+
+
+        function requestAppleJson(uri) {
+            xhr.onload = function () {
+                // iPadObject = JSON.parse(this.responseText);
+                // let { products: iPadAir } = iPadObject
+                let ipadArray = JSON.parse(this.responseText);
+
+
+                ipadArray.forEach((item, index) => {
+                    let li = document.createElement('li');
+
+                    li.innerText = `${++index}. ${item.id},${item.color},${item.storage}, ${item.network}`;
+
+                    ul.append(li);
+                })
+
+            }
+
+            xhr.open('GET', uri);
+
+            xhr.send();
+
+        }
+
+        function requestJSON7() {
+            xhr.onload = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    msg.textContent = this.responseText;
+                } else {
+                    msg.textContent = '發⽣錯誤，HTTP response代碼：' +
+                        xhr.status;
+                }
+                if (xhr.readyState == 4 && xhr.statusText == "OK") {
+                    msg.textContent = this.responseText;
+                } else {
+                    msg.textContent = '發⽣錯誤，HTTP response代碼：' +
+                        xhr.status;
+                }
+
+            };
+
+            xhr.open('GET', url);
+
+            xhr.send();
+
+        }
+    </script>
+</body>
+
+</html>

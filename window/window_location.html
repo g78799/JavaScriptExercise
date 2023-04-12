@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <style>
+        img {
+            border: 2px solid white;
+        }
+        img:hover{
+            cursor: pointer ;
+            border: 2px solid black;
+        }
+    </style> -->
+</head>
+
+<body>
+    <button id="btnPchome">PCHOME購物</button>
+    <button id="btnMomo">Momo購物</button>
+    <button id="btnYahoo">yahoo購物</button>
+    <button id="btnReload">重新載入網頁</button>
+    <img src="https://s4.lativ.com.tw/i/56268/56268_M_02_n.jpg">
+
+    <script>
+        let btnPchome, btnMomo, btnYahoo, imgLativ, btnReload;
+
+        window.onload = function () {
+            btnPchome = document.getElementById("btnPchome");
+            btnMomo = document.getElementById("btnMomo");
+            btnYahoo = document.getElementById("btnYahoo");
+            imgLativ = document.querySelector("img");
+
+
+            btnReload = document.getElementById("btnReload");
+
+            btnPchome.addEventListener("click", () => {
+                window.location = "https://shopping.pchome.com.tw/"
+            });
+            btnMomo.addEventListener("click", () => {
+                window.location = "https://www.momoshop.com.tw/main/Main.jsp"
+            });
+            btnYahoo.addEventListener("click", () => {
+                location = "https://tw.buy.yahoo.com/activity/activity950?p=act2-375-b-230215-anniversary&gg=0&co_servername=GT_A_act_0309_6&gclid=Cj0KCQjwtsCgBhDEARIsAE7RYh0x3z1xXkxQ3d3L8zQunzBdjWIrTHm2l_ZKwGeG5b9_LXYiZzbGDLcaAgN3EALw_wcB&gclsrc=aw.ds"
+            });
+
+            btnReload.addEventListener("click",()=> {
+                location.reload();//重新仔入頁面
+            });
+
+            imgLativ.addEventListener("click",()=> {
+                location = "https://www.lativ.com.tw/OnSale/50DUP/WOMEN?pid=2211211359&utm_source=google&utm_campaign=GSN_1121_lativ_sale50DUP&AID=19090491&gclid=Cj0KCQjwtsCgBhDEARIsAE7RYh23xpwVvuysQ7p9sSZcU5r7QgRoTnjcZMSGPd2P276GUj8-9B3NzJwaAk5YEALw_wcB"
+            });
+
+            imgLativ.addEventListener("mouseover",(event)=> {
+                event.target.style.cursor="pointer";
+                event.target.style.border="2px solid red ";
+            });
+            imgLativ.addEventListener("mouseout",(event)=> {
+                event.target.style.cursor="default";
+                event.target.style.border="2px solid black ";
+            });
+        }
+
+        
+    </script>
+
+</body>
+
+</html>

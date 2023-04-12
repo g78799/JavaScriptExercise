@@ -1,0 +1,45 @@
+let Cars = ['BMW','Benz','Audi','Lexus'];
+
+let car = Cars.find(c => c=='Benz');
+console.log(car);
+
+let index = Cars.indexOf('Audi');
+console.log(index);
+
+let idx = Cars.findIndex(c=>c=='Benz');
+console.log(idx);
+
+let Price = [200, 320, 250, 210];
+
+console.log(Price.findIndex(p => p>300));
+
+console.log(Price.filter(p =>p > 250));
+
+Price.filter(function(item,index){
+    if(item > 250){
+        console.log(`${Cars[index]}'s price is ${item},他價格大於250`);
+    }
+});
+
+let result = Price.filter(function(item,index){
+    if(item > 250){
+        console.log(`${Cars[index]}'s price is ${item},他價格大於250`);
+
+        return true;
+    }
+});
+
+console.log(result)
+
+console.log('-'.repeat(80));
+
+//用forEach + push()方法
+let resultArray = [];
+Price.forEach((price, index) => {
+    if(price >= 250){
+        console.log(`${Cars[index]} 's price is ${price}, 他價格大於250`);
+        resultArray.push(price);
+    }
+})
+
+console.log(resultArray)

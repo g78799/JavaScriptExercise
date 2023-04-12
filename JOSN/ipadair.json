@@ -1,0 +1,19 @@
+[
+    {
+        "id" : "a001",
+        "color": "太空灰色",
+        "storage": "64GB",
+        "network": "Wi-Fi",
+        "price": 19900,
+        "picture":"https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-finish-select-gallery-202211-space-gray?wid=2560&hei=1440&fmt=p-jpg&qlt=95&.v=1667585247239"
+    },
+    {
+        "id" : "a002",
+        "color": "藍色",
+        "storage": "64GB",
+        "network": "Wi-Fi",
+        "price": 19900,
+        "picture":"https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-finish-select-gallery-202211-blue?wid=2560&hei=1440&fmt=p-jpg&qlt=95&.v=1666991953754"
+    },
+    
+]

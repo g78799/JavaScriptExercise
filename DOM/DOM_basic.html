@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let h1 = document.createElement("h1");
+        h1.innerHTML = "DOM";
+
+        document.body.appendChild(h1);
+
+        let div = document.createElement("div");
+        let p1 = document.createElement("p");
+        let p2 = document.createElement("p");
+        let p3 = document.createElement("p");
+        div.append(p1,p2,p3,"Hello");
+        p1.innerHTML= "window";
+        p2.innerHTML= "document";
+        p3.innerHTML= "html";
+        document.body.appendChild(div);
+
+
+        let ul = document.createElement("ul");
+
+        let lis = ["window","document","html"];
+
+        lis.forEach(item =>{
+            let li = document.createElement("li")
+            li.innerText = item
+            ul.append(li);
+        });
+
+        document.body.append(ul);
+
+    </script>
+</body>
+</html>

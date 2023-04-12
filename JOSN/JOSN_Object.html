@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let person = {
+            "firstename": "Keven",
+            "gender": true,
+            "height": 180,
+            "email": "keven@gmail.com",
+            "City": {
+                "通訊地址": "台北",
+                "戶籍地址": "桃園"
+            },
+            "phone": {
+                "市話": "02-29881055",
+                "行動電話": "0933-852177"
+            },
+            "car": ["BMW", "nissan GR-R", "Audi"]
+        }
+
+        window.onload = function (){
+            document.write(`<h2>${person.firstename}, ${person.City.通訊地址}, ${person.phone.行動電話}, ${person.car[2]}</h2>`);
+            document.write(`<h2>${person["firstename"]}, ${person["City"]["通訊地址"]}, ${person["phone"]["行動電話"]}, ${person["car"][0]}</h2>`);
+            document.write(`<h2>${person["firstename"]}, ${person["City"].通訊地址}, ${person["phone"].行動電話}</h2>`);
+
+            let key =Object.keys(person);
+
+            key.forEach(key => {
+                document.write(`<p>${key}</p>`);
+            });
+        }
+
+
+    </script>
+</body>
+
+</html>

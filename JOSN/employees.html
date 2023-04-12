@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    const corp ={
+    "corp":"MCU",
+    "version": "1.0.1",
+    "pushline" :"2023/03/22",
+    "employees" : [
+        {
+            "firstname": "Keven",
+            "gender":true,
+            "height": 180,
+            "email":"keven@gmail.com",
+            "City":{
+                "通訊地址":"台北",
+                "戶籍地址":"桃園"
+            },
+            "phone":{
+                "市話":"02-29881055",
+                "行動電話":"0933-852177"
+            },
+            "car":["BMW","nissan GR-R","Audi"]
+        },
+        {
+            "firstname": "gee",
+            "gender":true,
+            "height": 200,
+            "email":"geen@gmail.com",
+            "City":{
+                "通訊地址":"台北",
+                "戶籍地址":"桃園"
+            },
+            "phone":{
+                "市話":"02-29881055",
+                "行動電話":"0933-852177"
+            },
+            "car":["BMW","nissan GR-R","Audi"]
+        }
+        ,{
+            "firstname": "tee",
+            "gender":true,
+            "height": 130,
+            "email":"yee@gmail.com",
+            "City":{
+                "通訊地址":"台北",
+                "戶籍地址":"桃園"
+            },
+            "phone":{
+                "市話":"02-29881055",
+                "行動電話":"0933-852177"
+            },
+            "car":["BMW","nissan GR-R","Audi"]
+        }
+    ]
+    }
+
+    window.onload =function(){
+        let employees = corp.employees;
+
+        employees.forEach(emp=>{
+            document.write(`<h2>${emp.firstname}, ${emp.City.通訊地址}, ${emp.phone.行動電話}`)
+        });
+    }
+
+    let key = Object.keys(corp);
+    key.forEach()
+    
+    </script>
+</body>
+</html>

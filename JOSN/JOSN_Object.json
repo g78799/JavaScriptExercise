@@ -1,0 +1,15 @@
+{
+    "firstname": "Keven",
+    "gender":true,
+    "height": 180,
+    "email":"keven@gmail.com",
+    "City":{
+        "通訊地址":"台北",
+        "戶籍地址":"桃園"
+    },
+    "phone":{
+        "市話":"02-29881055",
+        "行動電話":"0933-852177"
+    },
+    "car":["BMW","nissan GR-R","Audi"]
+}
